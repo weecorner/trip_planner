@@ -1,8 +1,8 @@
 const dbConnection = require('./db');
-const HotelModel = require('./hotel');
-const RestaurantModel = require('./restaurant');
-const ActivityModel = require('./activity');
-const PlaceModel = require('./place');
+const Hotel = require('./hotel');
+const Restaurant = require('./restaurant');
+const Activity = require('./activity');
+const Place = require('./place');
 
 
 Hotel.belongsTo(Place);
@@ -11,8 +11,8 @@ Activity.belongsTo(Place);
 
 module.exports = {
   db: dbConnection,
-  hotel: HotelModel,
-  restaurant: RestaurantModel,
-  activity: ActivityModel,
-  place: PlaceModel
+  hotel: Hotel,
+  restaurant: Restaurant,
+  activity: Activity,
+  place: Place
 };

@@ -12,12 +12,13 @@ app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-//app.use(express.static('views'));
+// app.use(express.static('views'));
 
-nunjucks.configure('views', {noCache: true}); 
 app.set('view engine', 'html');
-app.engine('html', nunjucks.render);
 
+
+app.engine('html', nunjucks.render);
+nunjucks.configure('views', {noCache: true});
 app.use(router);
 
 app.use(function(req, res, next) {
@@ -30,10 +31,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.error(err);
-  res.render(
-    // ... fill in this part
-    'error', {error:err}
-  );
+  res.send(err.message);
 });
 
 models.db.sync({})

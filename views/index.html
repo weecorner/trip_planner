@@ -2,10 +2,28 @@
 
 {% block content %}
 
-<h1>Hellooooo Tripplanner</h1>
-{% for hotel in hotels %}
-  <h2>{{hotel.name}}</h2>
+<h2 style ="color:pink">Hotels:</h2>
+<select>
+{% for hotel in templateHotels %}
+  <option value={{hotel.name}}>{{hotel.name}}</option>
+  {% endfor %}
 
-{% endfor %}
+</select>
+
+
+<h2 style ="color:pink">Restaurants:</h2>
+<select>
+{% for restaurant in templateRestaurants %}
+  <option value={{restaurant.name}}>{{restaurant.name}}</option>
+  {% endfor %}
+  </select>
+
+<h2 style ="color:pink">Activities:</h2>
+<select>
+{% for activity in templateActivities %}
+  <option value={{activity.name}}>{{activity.name}}</option>
+  {% endfor %}
+  </select>
+
 
 {% endblock %}
